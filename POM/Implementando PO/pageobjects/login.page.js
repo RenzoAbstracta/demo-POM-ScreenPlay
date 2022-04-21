@@ -23,7 +23,7 @@ class LoginPage extends Page {
     }
 
     async logOut() {
-        await this.logoutBtn.click()
+        await logoutBtn.click()
     }
 }
 
