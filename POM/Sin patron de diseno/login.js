@@ -3,10 +3,14 @@
  */
   class Login {
 
-    async testLogin() {
+    async testLoginPositive() {
+
+      //Abrir pagina de login
+      await browser.url('login');
+
       // Ingresar las credenciales
-      $('#username').sendKeys("userName");
-      $('#password').sendKeys("my supersecret password");
+      $('#username').sendKeys("myUsername");
+      $('#password').sendKeys("correctPassword");
       $('form button[type="submit"]').click();
   
       // Verifica que el login fue satisfactorio
@@ -15,4 +19,20 @@
       await expect($("h1")).toHaveText('You logged into a secure area!')
     }
     
+    async testLoginNegative() {
+
+      //Abrir pagina de login
+      await browser.url('login');
+
+      // Ingresar las credenciales
+      $('#username').sendKeys("myUsername");
+      $('#password').sendKeys("correctPassword");
+      $('form button[type="submit"]').click();
+  
+      // Verifica que el login fue satisfactorio
+      $("h1").isDisplayed();
+      assertThat($("h1").getText(), is("Hello userName"));
+      await expect($("h1")).toHaveText('You logged into a secure area!')
+    }
+
   }
