@@ -1,9 +1,9 @@
 export default class Page {
     // Web Elements:
-    // Barra de busqueda, menues, etc
+    get logoutBtn() { return $('button[type="logOut"]') }
 
     // Funcionalidades
-    async open (path) {
+    async open(path) {
         return await browser.url(path);
     }
 

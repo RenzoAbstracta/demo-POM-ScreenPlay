@@ -7,7 +7,6 @@ class LoginPage extends Page {
     get usernameField() { return $('#username') }
     get passwordField() { return $('#password') }
     get submitBtn() { return $('button[type="submit"]') }
-    get logoutBtn() { return $('button[type="logOut"]')}
     get loginResult() { return $('h1') }
 
     async open() {
@@ -17,13 +16,13 @@ class LoginPage extends Page {
 
     // Funcionalidad propia
     async logIn(username, password) {
-        await usernameField.clearAndSendKeys(username)
-        await passwordField.clearAndSendKeys(password)
-        await submitBtn.click()
+        await this.usernameField.clearAndSendKeys(username)
+        await this.passwordField.clearAndSendKeys(password)
+        await this.submitBtn.click()
     }
 
     async logOut() {
-        await logoutBtn.click()
+        await super.logoutBtn.click()
     }
 }
 
