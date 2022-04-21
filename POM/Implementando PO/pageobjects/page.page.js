@@ -1,5 +1,5 @@
 export default class Page {
-    // Web Elements:
+    // Web Elements
     get logoutBtn() { return $('button[type="logOut"]') }
 
     // Funcionalidades
